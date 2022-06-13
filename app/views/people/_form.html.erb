@@ -21,19 +21,25 @@
     <%= form.text_field :email %>
   </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password %>
-  </div>
 
   <div class="field">
     <%= form.label :born_at %>
-    <%= form.date_select :born_at %>
+    <%= form.date_select :born_at, start_year: 100.years.ago.year, end_year: 16.years.ago.year %>
   </div>
 
   <div class="field">
     <%= form.label :admin %>
     <%= form.check_box :admin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
   </div>
 
   <div class="actions">

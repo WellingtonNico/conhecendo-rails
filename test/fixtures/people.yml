@@ -3,13 +3,13 @@
 admin:
   name: Wellington
   email: wellingtonicoletti@gmail.com
-  password: MyString
+  password_digest: <%= BCrypt::Password.create('testetamanhobom') %>
   born_at: 1997-04-21
   admin: true
 
 autor:
   name: MyString
   email: MyString
-  password: MyString
   born_at: 2022-06-13
   admin: false
+  password_digest: <%= BCrypt::Password.create('testetamanhobom') %>

@@ -44,8 +44,11 @@ class PersonTest < ActiveSupport::TestCase
     assert @person.valid?
   end
 
-
-
-
+  test "o email deve ser salvo com letras minúsculas" do
+    email = 'FUNCIONAL@TEST.COM'
+    @person.email = email
+    assert @person.save
+    assert_equal email.downcase, @person.email
+  end
 
 end

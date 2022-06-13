@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_13_191923) do
+ActiveRecord::Schema.define(version: 2022_06_13_204937) do
 
   create_table "people", force: :cascade do |t|
     t.string "name", limit: 50, null: false
     t.string "email", limit: 100
-    t.string "password", limit: 100
+    t.string "password_digest", limit: 100
     t.date "born_at"
     t.boolean "admin"
     t.datetime "created_at", null: false

@@ -1,5 +1,6 @@
 class PeopleController < ApplicationController
   before_action :set_person, only: %i[ show edit update destroy ]
+  respond_to :html, :json
 
   # GET /people or /people.json
   def index
@@ -22,39 +23,21 @@ class PeopleController < ApplicationController
   # POST /people or /people.json
   def create
     @person = Person.new(person_params)
-
-    respond_to do |format|
-      if @person.save
-        format.html { redirect_to person_url(@person), notice: "Person was successfully created." }
-        format.json { render :show, status: :created, location: @person }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @person.errors, status: :unprocessable_entity }
-      end
-    end
+    flash[:notice] = 'Pessoa salva com sucesso!' if @person.save
+    respond_with @person
   end
 
   # PATCH/PUT /people/1 or /people/1.json
   def update
-    respond_to do |format|
-      if @person.update(person_params)
-        format.html { redirect_to person_url(@person), notice: "Person was successfully updated." }
-        format.json { render :show, status: :ok, location: @person }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @person.errors, status: :unprocessable_entity }
-      end
-    end
+    flash[:notice] = 'Pessoa atualizada com sucesso!' if @person.update(person_params)
+    respond_with @person
   end
 
   # DELETE /people/1 or /people/1.json
   def destroy
+    flash[:notice] = 'Pessoa deletada com sucesso!' if @person.destroy
+    respond_with @person
     @person.destroy
-
-    respond_to do |format|
-      format.html { redirect_to people_url, notice: "Person was successfully destroyed." }
-      format.json { head :no_content }
-    end
   end
 
   private
@@ -65,6 +48,6 @@ class PeopleController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def person_params
-      params.require(:person).permit(:name, :email, :password, :born_at, :admin)
+      params.require(:person).permit(:name, :email, :password, :born_at, :admin,:password_confirmation)
     end
 end
