@@ -6,7 +6,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
         @good_password = 'testetamanhobom'
         @bad_password = 'nananinanao'
         @bad_email = 'foo@bar.com'
-      end
+    end
 
     test "deve ter um formulário de login" do
         get new_session_url

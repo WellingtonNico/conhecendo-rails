@@ -7,9 +7,18 @@ admin:
   born_at: 1997-04-21
   admin: true
 
-autor:
-  name: MyString
-  email: MyString
-  born_at: 2022-06-13
-  admin: false
+one:
+  name: Adriano
+  email: wellingtonicoletti@gmail.com.br
   password_digest: <%= BCrypt::Password.create('testetamanhobom') %>
+  born_at: 1997-04-21
+  admin: false
+
+two:
+  name: Zaratustra
+  email: vendas13@gmail.com.br
+  password_digest: <%= BCrypt::Password.create('testetamanhobom') %>
+  born_at: 1997-04-21
+  admin: false
+
+

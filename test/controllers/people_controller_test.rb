@@ -22,7 +22,7 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
       post people_url, params: { person: { admin: @person.admin, born_at: @person.born_at, email: 'funcional@teste.com', name: 'Zaratustra', password: @good_password,  password_confirmation: @good_password } }
     end
 
-    assert_redirected_to person_url(Person.last)
+    assert_redirected_to person_url(Person.where(email:'funcional@teste.com').first)
   end
 
   test "should show person" do
