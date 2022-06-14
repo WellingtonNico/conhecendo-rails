@@ -7,6 +7,12 @@ class Person < ApplicationRecord
     before_save :convert_email
     validates :password, presence:{on: :create},length:{minimum:8,allow_blank: true}
 
+
+    # escopos
+    scope :admins, -> {where(admin:true)}
+    scope :by_domain, -> (domain) { where("email like ?", "%@#{domain}") }
+    default_scope -> { order(:name) }
+
     # recebe um email e senha e retorna uma pessoa caso a autenticação suceder
     # caso contrário retorna nulo
     def self.auth(email,password)

@@ -19,7 +19,7 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
 
   test "should create person" do
     assert_difference('Person.count') do
-      post people_url, params: { person: { admin: @person.admin, born_at: @person.born_at, email: 'funcional@teste.com', name: @person.name, password: @good_password } }
+      post people_url, params: { person: { admin: @person.admin, born_at: @person.born_at, email: 'funcional@teste.com', name: 'Zaratustra', password: @good_password,  password_confirmation: @good_password } }
     end
 
     assert_redirected_to person_url(Person.last)
@@ -35,11 +35,6 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should update person" do
-    patch person_url(@person), params: { person: { admin: @person.admin, born_at: @person.born_at, email: @person.email, name: @person.name, password: @good_password, password_confirmation: @good_password} }
-    assert_redirected_to person_url(@person)
-  end
-
   test "deve atualizar a pessoa sem alterar a senha" do
     old_password = @person.password_digest
     patch person_url(@person), params: { person: { admin: @person.admin, born_at: @person.born_at, email: @person.email, name: @person.name } }
@@ -50,7 +45,7 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
 
   test "deve atualizar a pessoa alterando a senha" do
     old_password = @person.password_digest
-    patch person_url(@person), params: { person: { admin: @person.admin, born_at: @person.born_at, email: @person.email, name: @person.name, password: @good_password } }
+    patch person_url(@person), params: { person: { admin: @person.admin, born_at: @person.born_at, email: @person.email, name: @person.name, password: @good_password, password_confirmation: @good_password } }
     assert_redirected_to person_url(@person)
     @person.reload
     assert_not_equal old_password,@person.password_digest
@@ -83,6 +78,19 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
     assert_nil Person.auth(@person.email,@bad_password)
   end
 
+  test "deve ter um escopo para retornar administradores" do
+    assert_respond_to Person, :admins
+    assert_equal 1, Person.admins.size
+  end
   
+  test "deve ter um escopo para retornar usuarios por dominio" do
+      assert_respond_to Person, :by_domain
+      assert_equal 1, Person.by_domain("gmail.com").size
+  end
+
+  test "deve ter um escopo padrão para retornar os usuários em ordem alfabética" do
+  people = Person.all
+  assert people.first.name < people.last.name, "#{people.last.name} deveria estar antes de #{people.first.name}"
+  end
 
 end
