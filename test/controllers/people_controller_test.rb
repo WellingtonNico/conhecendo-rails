@@ -36,7 +36,7 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update person" do
-    patch person_url(@person), params: { person: { admin: @person.admin, born_at: @person.born_at, email: @person.email, name: @person.name, password: @person.password } }
+    patch person_url(@person), params: { person: { admin: @person.admin, born_at: @person.born_at, email: @person.email, name: @person.name, password: @good_password, password_confirmation: @good_password} }
     assert_redirected_to person_url(@person)
   end
 

@@ -1,6 +1,5 @@
 class Person < ApplicationRecord
     has_secure_password
-    has_secure_token
     validates :name, presence: true, length: {maximum: 50}
     validates :email, allow_blank: true, allow_nil: true, uniqueness: true,email: {allow_blank: true}
     validates :born_at, presence: true
