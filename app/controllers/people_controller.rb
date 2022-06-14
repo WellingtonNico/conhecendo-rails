@@ -1,4 +1,4 @@
-class PeopleController < ApplicationController
+class PeopleController < LoggedController
   before_action :set_person, only: %i[ show edit update destroy changed]
   respond_to :html, :json
 

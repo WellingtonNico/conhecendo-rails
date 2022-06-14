@@ -1,13 +1,6 @@
 class ApplicationController < ActionController::Base
-    NotAuthenticated = Class.new(StandardError)
 
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-    rescue_from NotAuthenticated, with: :not_authenticated
-    before_action :logged?, only: [:index]
-
-    def logged?
-        raise NotAuthenticated unless session[:id]
-    end
 
     def not_authenticated
         flash[:notice] = 'Você precisa estar autenticado'
