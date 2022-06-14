@@ -93,4 +93,13 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
   assert people.first.name < people.last.name, "#{people.last.name} deveria estar antes de #{people.first.name}"
   end
 
+  test "deve haver uma rota para obter os administradores" do
+    get admins_people_url
+    assert_response :success
+    assert_select 'table' do
+      assert_select 'tbody' do
+        assert_select 'tr',1
+      end
+    end
+  end
 end

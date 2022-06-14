@@ -33,6 +33,11 @@ class PeopleController < ApplicationController
     respond_with @person
   end
 
+  # GET /people/admins
+  def admins
+    @admins = Person.admins
+  end
+
   # DELETE /people/1 or /people/1.json
   def destroy
     flash[:notice] = 'Pessoa deletada com sucesso!' if @person.destroy

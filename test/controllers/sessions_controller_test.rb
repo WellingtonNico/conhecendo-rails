@@ -42,4 +42,12 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
         assert_redirected_to new_session_url
     end
 
+    test "deve haver uma url de login" do
+        assert_recognizes({controller: 'sessions',action: 'new'},{path: 'login'})
+    end
+
+    test "deve haver uma url de logout" do
+        assert_recognizes({controller: 'sessions',action: 'destroy'},{path: 'logout',method:'delete'})
+    end
+
 end
