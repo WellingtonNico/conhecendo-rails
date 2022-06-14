@@ -102,4 +102,17 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
       end
     end
   end
+
+  test "deve haver uma url onde constam mudanças no model" do
+    assert_routing({path: "/people/#{@person.id}/changed"},{controller:"people",action: 'changed',id: @person.id.to_param})
+  end
+
+  test "deve mostrar informação sobre quando a pessoa foi alterada" do
+    get changed_person_url(@person.id)
+    assert_response :success
+    assert_select 'p#name', text: "Nome: #{@person.name}"
+    assert_select 'p#created', text: "Criado em: #{I18n.localize(@person.created_at)}"
+    assert_select 'p#updated', text: "Alterado em: #{I18n.localize(@person.updated_at)}"
+  end
+
 end

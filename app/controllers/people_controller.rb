@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  before_action :set_person, only: %i[ show edit update destroy ]
+  before_action :set_person, only: %i[ show edit update destroy changed]
   respond_to :html, :json
 
   # GET /people or /people.json
@@ -36,6 +36,10 @@ class PeopleController < ApplicationController
   # GET /people/admins
   def admins
     @admins = Person.admins
+  end
+
+  # GET /people/1/changed
+  def changed
   end
 
   # DELETE /people/1 or /people/1.json
