@@ -120,7 +120,7 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "deve mostrar informação sobre quando a pessoa foi alterada" do
-    # sign_in @person.email, @good_password
+    sign_in @person.email, @good_password
     get changed_person_url(@person.id)
     assert_response :success
     assert_select 'p#name', text: "Nome: #{@person.name}"

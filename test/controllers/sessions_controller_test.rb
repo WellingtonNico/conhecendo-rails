@@ -47,7 +47,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     end
 
     test "deve haver uma url de logout" do
-        assert_recognizes({controller: 'sessions',action: 'destroy'},{path: 'logout',method:'delete'})
+        assert_recognizes({controller: 'sessions',action: 'destroy'},{path: 'logout',method:'get'})
     end
 
 end
