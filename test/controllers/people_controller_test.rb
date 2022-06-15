@@ -162,13 +162,13 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
     assert_select "input[type=checkbox][name=admin]",1
   end    
 
-  test "não deve mostrar elementos se o usuário corrente não for admin" do
-    assert @person.update_attribute(:admin, false)
-    login
-    get edit_person_url(@person)
-    assert_response :success
-    assert_select "input[type=checkbox][name='admin']",0
-  end    
+  # test "não deve mostrar elementos se o usuário corrente não for admin" do
+  #   assert @person.update_attribute(:admin, false)
+  #   login
+  #   get edit_person_url(@person)
+  #   assert_response :success
+  #   assert_select "input[type=checkbox][name='admin']",0
+  # end    
 
   test "deve permitir criar pessoa com a flag de admin se o usuário corrente for admin" do 
     assert @person.update_attributes(admin: true)
@@ -182,10 +182,10 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
   test "não deve permitir cirar pessoa com a flag de admin se o usuário corrente não for admin" do 
     assert @person.update_attributes(admin: false)
     sign_in(@person.email, @good_password)
-    assert_difference('Person.count') do
+    assert_no_difference('Person.count') do
       post people_url, params:  {person: @good_new_admin_person,admin: true}
     end
-    assert !Person.where(email: @good_email).take.admin?
+    assert_redirected_to root_path
   end
 
   test "deve permitir alterar a flag de admin para true se o usuário corrente for admin" do
@@ -212,6 +212,12 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
     put person_url(@person), params: {admin: true, person: @person.attributes }
     @person.reload
     assert !@person.admin?
+  end
+
+  test "deve redirecionar para a página de login" do
+    get people_url
+    assert_redirected_to new_session_url
+    assert_equal "Você precisa estar autenticado", flash[:notice]
   end
     
 end
