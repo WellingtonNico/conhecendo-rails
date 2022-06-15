@@ -10,6 +10,21 @@
   </head>
 
   <body>
+  <header>
+    <h1>Interface de administração</h1> 
+  </header>
+  <nav>
+    <ul>
+      <li>
+        <%= link_to "Pessoas", people_path %>
+      </li>
+    </ul>
+  </nav>
+  <section id="main">
     <%= yield %>
+  </section>
+  <footer>
+    Desenvolvido a partir do livro, conhecendo o rails
+  </footer>
   </body>
 </html>

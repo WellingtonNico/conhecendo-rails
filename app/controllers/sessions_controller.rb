@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+    layout 'pub'
+
     def new
     end
 
