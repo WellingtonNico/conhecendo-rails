@@ -27,10 +27,12 @@
     <%= form.date_select :born_at, start_year: 100.years.ago.year, end_year: 16.years.ago.year %>
   </div>
 
-  <div class="field">
-    <%= form.label :admin %>
-    <%= form.check_box :admin %>
-  </div>
+  <% if session[:admin] %>
+    <div class="field">
+      <%= form.label :admin %>
+      <%= check_box_tag :admin,person.admin, {:checked => person.admin ? 'checked' : '' }%>
+    </div>
+  <% end %>
 
   <div class="field">
     <%= form.label :password %>

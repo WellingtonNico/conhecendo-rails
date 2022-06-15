@@ -57,6 +57,6 @@ class PeopleController < LoggedController
 
     # Only allow a list of trusted parameters through.
     def person_params
-      params.require(:person).permit(:name, :email, :password, :born_at, :admin,:password_confirmation)
+      params.require(:person).permit(:name, :email, :password, :born_at, :password_confirmation)
     end
 end

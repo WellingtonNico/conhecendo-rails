@@ -5,6 +5,7 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
     @person = people(:admin)
     @good_password = 'testetamanhobom'
     @bad_password = 'nananinanao'
+    @good_email = 'funcional@teste.com'
   end
 
   test "should get index" do
@@ -22,10 +23,10 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
   test "should create person" do
     sign_in @person.email, @good_password
     assert_difference('Person.count') do
-      post people_url, params: { person: { admin: @person.admin, born_at: @person.born_at, email: 'funcional@teste.com', name: 'Zaratustra', password: @good_password,  password_confirmation: @good_password } }
+      post people_url, params: { person: { admin: @person.admin, born_at: @person.born_at, email: @good_email, name: 'Zaratustra', password: @good_password,  password_confirmation: @good_password } }
     end
 
-    assert_redirected_to person_url(Person.where(email:'funcional@teste.com').first)
+    assert_redirected_to person_url(Person.where(email: @good_email).first)
   end
 
   test "should show person" do
@@ -120,7 +121,7 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "deve mostrar informação sobre quando a pessoa foi alterada" do
-    sign_in @person.email, @good_password
+    sign_in(@person.email, @good_password)
     get changed_person_url(@person.id)
     assert_response :success
     assert_select 'p#name', text: "Nome: #{@person.name}"
@@ -132,5 +133,36 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
     get people_url
     assert_redirected_to new_session_url
   end
+
+  test "não deve mostrar o campo admin no formulário" do
+    sign_in(@person.email, @good_password)
+    get edit_person_url(@person)
+    assert_response :success
+    assert_select "input[name='person[admin]']",0
+  end
+
+  test "não deve permitir alterar a flag de admin" do
+    sign_in(@person.email, @good_password)
+    assert_difference('Person.count') do
+      post people_url, params: { person: { admin: true, born_at: @person.born_at, email: @good_email, name: @person.name, password: @good_password, password_confirmation: @good_password }}
+      assert !Person.where(email: @good_email).take.admin?
+    end
+  end
+
+  test "deve mostrar elementos se o usuário corrente for admin" do
+    assert @person.update_attribute(:admin, true)
+    sign_in(@person.email, @good_password)
+    get edit_person_url(@person)
+    assert_response :success
+    assert_select "input[type=checkbox][name=admin]",1
+  end    
+
+  test "não deve mostrar elementos se o usuário corrente não for admin" do
+    assert @person.update_attribute(:admin, false)
+    sign_in(@person.email, @good_password)
+    get edit_person_url(@person)
+    assert_response :success
+    assert_select "input[type=checkbox][name='admin']",0
+  end    
 
 end
