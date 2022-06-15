@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
+2.5.0
 
 * System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
+sqlite3
 
 * How to run the test suite
+after create database, run the command "rails test"
 
-* Services (job queues, cache servers, search engines, etc.)
+* Tips
+to run old ruby versions on apple silicon, you should install an old version of
+openssl, I tryied using 1.0.2, and then runing command to install ruby with "arch -x86_64"
+before the command to install ruby. Ex: arch -x86_64 rbenv install 2.5.0
 
-* Deployment instructions
-
-* ...
