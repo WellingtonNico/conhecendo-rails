@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= Person.human_attribute_name(:name) %>:</strong>
   <%= @person.name %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong><%= Person.human_attribute_name(:email) %>:</strong>
   <%= @person.email %>
 </p>
 
 <p>
-  <strong>Password:</strong>
+  <strong><%= Person.human_attribute_name(:password) %>:</strong>
   <%= @person.password %>
 </p>
 
 <p>
-  <strong>Born at:</strong>
+  <strong><%= Person.human_attribute_name(:born_at) %>:</strong>
   <%= @person.born_at %>
 </p>
 
 <p>
-  <strong>Admin:</strong>
+  <strong><%= Person.human_attribute_name(:admin) %>:</strong>
   <%= @person.admin %>
 </p>
 
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
+<%= link_to 'Editar', edit_person_path(@person.person) %> |
+<%= link_to 'voltar', people_path %>

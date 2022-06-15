@@ -1,7 +1,7 @@
 <%= form_with(model: person, local: true) do |form| %>
   <% if person.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
+      <h2><%= person.errors.count %> erro(s) proibiu(ram) o registro de ser salvo:</h2>
 
       <ul>
       <% person.errors.full_messages.each do |message| %>
@@ -30,7 +30,7 @@
   <% if session[:admin] %>
     <div class="field">
       <%= form.label :admin %>
-      <%= check_box_tag :admin %>
+      <%= check_box_tag :admin,person.admin,{:checked => person.admin ? 'checked' : ''} %>
     </div>
   <% end %>
 

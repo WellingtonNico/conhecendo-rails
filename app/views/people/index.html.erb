@@ -20,9 +20,9 @@
         <td><%= person.email %></td>
         <td><%= person.born_at %></td>
         <td><%= person.admin %></td>
-        <td><%= link_to 'Show', person %></td>
-        <td><%= link_to 'Edit', edit_person_path(person) %></td>
-        <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: "Tem certeza que deseja apagar #{person.name}?" } %></td>
+        <td><%= link_to 'Ver', person %></td>
+        <td><%= link_to 'Editar', edit_person_path(person) %></td>
+        <td><%= link_to 'Deletar', person, method: :delete, data: { confirm: "Tem certeza que deseja apagar #{person.name}?" } %></td>
       </tr>
     <% end %>
   </tbody>
