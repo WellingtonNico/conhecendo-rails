@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  published_at: 2022-06-15
+  text: MyText
+  value: 9.99
+  person: one
+
+two:
+  title: MyString
+  published_at: 2022-06-15
+  text: MyText
+  value: 9.99
+  person: two
