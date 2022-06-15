@@ -1,17 +1,11 @@
-class PersonPresenter
-    attr_reader :person
-    delegate :id, :name, :email, to: :person
-
-    def initialize(person)
-        @person = person
-    end
+class PersonPresenter < SimpleDelegator
 
     def admin
-        @person.admin ? 'sim' : 'não'
+        super ? 'sim' : 'não'
     end
 
     def born_at
-        helpers.l(@person.born_at)
+        helpers.l(super)
     end
 
     def password
@@ -23,7 +17,5 @@ class PersonPresenter
     def helpers
         ApplicationController.helpers
     end
-
-
 
 end
