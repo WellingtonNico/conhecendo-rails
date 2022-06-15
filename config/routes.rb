@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'pub#index'
+  get 'pub/sobre'
   resources :people do
     collection do
       get :admins
