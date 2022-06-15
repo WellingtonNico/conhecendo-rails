@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  published_at: 2022-06-15
-  text: MyText
+  title: Conhecendo ruby
+  published_at: 2013-06-29
+  text: livro prático e divertido sobre a linguagem
   value: 9.99
-  person: one
+  person: admin
 
 two:
-  title: MyString
-  published_at: 2022-06-15
-  text: MyText
-  value: 9.99
-  person: two
+  title: Conhecendo o Git
+  published_at: 2013-06-24
+  text: Quer aprender Git de forma rápida e prática?
+  value: 10.00
+  person: admin
