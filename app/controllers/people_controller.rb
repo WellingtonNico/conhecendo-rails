@@ -23,12 +23,14 @@ class PeopleController < LoggedController
   # POST /people or /people.json
   def create
     @person = Person.new(person_params)
+    @person.admin = params[:admin] if session[:admin]
     flash[:notice] = 'Pessoa salva com sucesso!' if @person.save
     respond_with @person
   end
 
   # PATCH/PUT /people/1 or /people/1.json
   def update
+    @person.admin = params[:admin] if session[:admin]
     flash[:notice] = 'Pessoa atualizada com sucesso!' if @person.update(person_params)
     respond_with @person
   end

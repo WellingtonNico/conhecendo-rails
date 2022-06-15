@@ -30,7 +30,7 @@
   <% if session[:admin] %>
     <div class="field">
       <%= form.label :admin %>
-      <%= check_box_tag :admin,person.admin, {:checked => person.admin ? 'checked' : '' }%>
+      <%= check_box_tag :admin %>
     </div>
   <% end %>
 
