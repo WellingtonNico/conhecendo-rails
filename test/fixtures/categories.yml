@@ -1,7 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+tech:
+  name: tecnologia
+
 one:
-  name: MyString
+  name: primeira
 
 two:
-  name: MyString
+  name: desenvolvimento
