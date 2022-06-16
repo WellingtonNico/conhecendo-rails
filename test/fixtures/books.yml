@@ -6,6 +6,7 @@ one:
   text: livro prático e divertido sobre a linguagem
   value: 9.99
   person: admin
+  categories: [ tech, dev ]
 
 two:
   title: Conhecendo o Git
@@ -13,3 +14,4 @@ two:
   text: Quer aprender Git de forma rápida e prática?
   value: 10.00
   person: admin
+  categories: [ tech, dev ]

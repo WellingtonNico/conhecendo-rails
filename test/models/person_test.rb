@@ -51,4 +51,17 @@ class PersonTest < ActiveSupport::TestCase
     assert_equal email.downcase, @person.email
   end
 
+  test "deve haver várias categorias através dos livros" do
+    assert_respond_to @person, :categories
+  end
+
+  test "deve ter uma categoria do tipo certo" do
+    assert @person.categories.count > 0
+    assert_kind_of Category, @person.categories.first
+  end
+
+  test "deve retornar apenas duas categorias" do
+    assert_equal 2,@person.categories.count
+  end
+
 end

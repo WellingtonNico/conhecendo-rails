@@ -7,6 +7,7 @@ class Person < ApplicationRecord
     before_save :convert_email
     validates :password, presence:{on: :create},length:{minimum:8,allow_blank: true}
     has_many :books, dependent: :destroy
+    has_many :categories, -> { distinct }, through: :books
 
 
     # escopos
