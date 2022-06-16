@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   resources :books
   root 'pub#index'
   get 'pub/sobre'
