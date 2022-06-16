@@ -3,6 +3,7 @@ require 'test_helper'
 class BookTest < ActiveSupport::TestCase
   setup do
     @book = books(:one)
+    @person = people(:admin)
   end
 
   test "deve ter um título" do 
@@ -29,10 +30,25 @@ class BookTest < ActiveSupport::TestCase
     @book.value = 100000000.00
     assert !@book.valid?
   end
+
+  test "a pessoa deve ter uma coleção de livros" do
+    assert_respond_to @person, :books
+    assert_kind_of Book,@person.books.first
+  end
   
   test "deve ser associado a uma pessoa" do
     @book.person = nil
     assert !@book.valid?
+  end
+
+  test "deve apagar os livros quando apagar a pessoa" do
+    person = people(:admin)
+    assert person.books.size > 0
+    assert_difference('Person.count', -1) do
+      assert_difference('Book.count',person.books.size * -1) do
+        assert person.destroy, "deveria apagar a pessoa"
+      end
+    end 
   end
 
 
