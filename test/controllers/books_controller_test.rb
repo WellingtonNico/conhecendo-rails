@@ -55,7 +55,12 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Book.count', -1) do
       delete book_url(@book)
     end
-
     assert_redirected_to books_url
   end
+
+  test "deve redirecionar para a tela de login" do
+    get books_url
+    assert_redirected_to new_session_url
+  end
+
 end
