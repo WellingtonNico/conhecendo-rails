@@ -36,6 +36,15 @@
     <%= form.text_field :person_id %>
   </div>
 
+  <h2>Categorias</h2>
+  <ul>
+    <%= collection_check_boxes :book, :category_ids, @categories, :id, :name do |builder| %>
+      <li>
+        <%= builder.label { builder.check_box + builder.text } %> 
+      </li>
+    <%end%> 
+  </ul>
+
   <div class="actions">
     <%= form.submit %>
   </div>

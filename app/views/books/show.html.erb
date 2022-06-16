@@ -25,5 +25,12 @@
   <%= @book.person %>
 </p>
 
+<h2>Categorias</h2> 
+<ul>
+  <% for category in @book.categories %> 
+    <li><%= category.name %></li>
+  <% end %> 
+</ul>
+
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
