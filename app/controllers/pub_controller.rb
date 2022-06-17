@@ -37,5 +37,10 @@ class PubController < ApplicationController
     # redirect_to cart_path
   end
 
+  def change_cart_item
+    @book = Book.find(params[:id])
+    @cart = find_cart
+    @cart.change(@book,params[:qty].to_i)
+  end
 
 end

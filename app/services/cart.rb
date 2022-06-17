@@ -13,7 +13,7 @@ class Cart
         @items
     end
 
-    def incluce?(product)
+    def include?(product)
         @items.key?(product.id)
     end
 
@@ -36,6 +36,14 @@ class Cart
                 qty: qty
             }
         end
+    end
+
+    def change(product,qty)
+        if qty < 1
+            self - product
+            return
+        end
+        @items[product.id] = qty
     end
 
 

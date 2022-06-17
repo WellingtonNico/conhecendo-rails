@@ -13,7 +13,7 @@ gem 'bcrypt'
 gem 'activerecord-session_store'
 
 # JQuery
-# gem 'jquery-rails'
+gem 'jquery-rails'
 
 # redimensionamento de imagens
 gem 'mini_magick'

@@ -2,7 +2,7 @@
     <%= image_tag(cart_item[:item].image, height: 100) %>
     <%= cart_item[:item].title %>
     <br>
-    <%= text_field_tag :qty, cart_item[:qty],size: 3, redonly: 'readonly' %>
+    <%= number_field_tag :qty, cart_item[:qty], min: 0, max: cart_item[:item].stock, class: 'cart-qty', 'data-id': cart_item[:id] %>
     <span class="book_value">
         <%= number_to_currency(cart_item[:item].value) %>
     </span>

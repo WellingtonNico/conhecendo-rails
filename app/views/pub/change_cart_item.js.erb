@@ -1,0 +1,7 @@
+<% if @cart.include?(@book) %>
+    $("#item_<%= @book.id %>").animate({ opacity: 0.25 }).animate({ opacity: 1 });
+<%else%>
+    $("#item_<%= @book.id %>").fadeOut(1000);
+<%end%>
+
+$("#cart_total").text("<%= number_to_currency(@cart.total) %>");
