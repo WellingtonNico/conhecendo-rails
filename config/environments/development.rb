@@ -62,4 +62,14 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.time_zone = 'Brasilia'
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    authentication: 'plain',
+    user_name: ENV['MAIL_USER'],
+    assword: ENV['MAIL_PWD'],
+    enable_starttls_auto: true
+  }
 end

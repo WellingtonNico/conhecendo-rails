@@ -12,6 +12,9 @@ gem 'bcrypt'
 # biblioteca necessária para salvar os dados das sessões no banco de dados
 gem 'activerecord-session_store'
 
+# gem responsável pelas variáveis de ambiente
+gem 'figaro'
+
 # JQuery
 gem 'jquery-rails'
 
