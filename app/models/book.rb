@@ -1,3 +1,14 @@
+SoldOutException   = Class.new(StandardError)
+NotEnoughException = Class.new(StandardError)
+
+def sell(qty = 1)
+  raise SoldOutException,   'Esgotado'       if sold_out?
+  raise NotEnoughException, 'Sem estoque suficiente' if self.stock - qty < 0
+  self.stock -= qty
+  save!
+end
+
+
 class Book < ApplicationRecord
   include ImageSaver
   belongs_to :person
