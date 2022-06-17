@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Books</h1>
+<h1>Livros</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Published at</th>
-      <th>Text</th>
-      <th>Value</th>
-      <th>Person</th>
+      <th><%= Book.human_attribute_name(:title) %></th>
+      <th><%= Book.human_attribute_name(:published_at) %></th>
+      <th><%= Book.human_attribute_name(:text) %></th>
+      <th><%= Book.human_attribute_name(:value) %></th>
+      <th><%= Book.human_attribute_name(:person) %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,12 +19,12 @@
       <tr>
         <td><%= book.title %></td>
         <td><%= book.published_at %></td>
-        <td><%= book.text %></td>
+        <td><%= book.text.truncate(15) %></td>
         <td><%= book.value %></td>
-        <td><%= book.person %></td>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= book.person.name.truncate(15) %></td>
+        <td><%= link_to 'Ver', book %></td>
+        <td><%= link_to 'Editar', edit_book_path(book) %></td>
+        <td><%= link_to 'Apagar', book, method: :delete, data: { confirm: 'Tem certeza que deseja apagar este livro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Book', new_book_path %>
+<%= link_to 'Adicionar livro', new_book_path %>
