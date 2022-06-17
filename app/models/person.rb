@@ -11,6 +11,7 @@ class Person < ApplicationRecord
     has_many :categories, -> { distinct }, through: :books
     has_one :image, dependent: :destroy, as: :imageable
     has_many :orders, dependent: :destroy
+    has_many :order_items, through: :orders
 
     # escopos
     scope :admins, -> {where(admin:true)}

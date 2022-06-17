@@ -12,6 +12,7 @@ class Book < ApplicationRecord
   has_one :image, dependent: :destroy, as: :imageable
   has_many :order_items
   has_many :orders, through: :order_items
+  has_many :people, -> {distinct}, through: :orders
 
   SoldOutException   = Class.new(StandardError)
   NotEnoughException = Class.new(StandardError)
