@@ -3,9 +3,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.8'
 
-
+# biblioteca para usar no lugar do responder padrão, é mais simples e vai menos código
 gem 'responders'
+
+# biblioteca para fazer a encriptação das senhas
 gem 'bcrypt'
+
+# redimensionamento de imagens
+gem 'mini_magick'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.8'
 # Use sqlite3 as the database for Active Record

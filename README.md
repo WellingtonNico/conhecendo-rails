@@ -4,7 +4,7 @@
 2.5.0
 
 * System dependencies:
-sqlite3
+sqlite3, imagemagick
 
 * How to run the test suite:
 after create database, run the command "rails test"

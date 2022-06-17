@@ -8,6 +8,7 @@ class Person < ApplicationRecord
     validates :password, presence:{on: :create},length:{minimum:8,allow_blank: true}
     has_many :books, dependent: :destroy
     has_many :categories, -> { distinct }, through: :books
+    has_one :image, dependent: :destroy
 
 
     # escopos
@@ -23,15 +24,15 @@ class Person < ApplicationRecord
     end
 
     private 
-    def age_limit
-        if self.born_at.nil? || Date.current.year - self.born_at.year < 16
-            errors.add(:born_at,'tem que ser maior de 16 anos')
-            throw(:abort)
+        def age_limit
+            if self.born_at.nil? || Date.current.year - self.born_at.year < 16
+                errors.add(:born_at,'tem que ser maior de 16 anos')
+                throw(:abort)
+            end
         end
-    end
 
-    def convert_email
-        email.downcase!
-    end
+        def convert_email
+            email.downcase!
+        end
 
 end

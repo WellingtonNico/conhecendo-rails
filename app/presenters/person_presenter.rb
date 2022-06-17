@@ -12,10 +12,15 @@ class PersonPresenter < SimpleDelegator
         '*' * 10
     end
 
-    private
-    
-    def helpers
-        ApplicationController.helpers
+    def image
+        return '' unless super
+        helpers.image_tag(super.to_s).html_safe
     end
+
+    private
+        def helpers
+            ApplicationController.helpers
+        end
+
 
 end

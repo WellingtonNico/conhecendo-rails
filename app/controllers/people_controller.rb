@@ -1,5 +1,6 @@
 class PeopleController < AdminController
   before_action :set_person, only: %i[ show edit update destroy changed]
+  before_action :save_image, only: %i[ create update ]
   respond_to :html, :json
 
   # GET /people or /people.json
@@ -62,5 +63,13 @@ class PeopleController < AdminController
     # Only allow a list of trusted parameters through.
     def person_params
       params.require(:person).permit(:name, :email, :password, :born_at, :password_confirmation)
+    end
+
+    def save_image
+      return unless params[:data_stream].present?
+      @image = (@person.image || Image.new(title: @person.name, person_id: @person.id))
+      @image.data_stream = params[:data_stream]
+      @image.height = 200
+      @person.image = @image if @image.save
     end
 end
