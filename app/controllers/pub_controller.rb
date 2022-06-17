@@ -43,4 +43,22 @@ class PubController < ApplicationController
     @cart.change(@book,params[:qty].to_i)
   end
 
+  def close_order
+    raise NotAuthenticated, 'Faça o login primeiro' if session[:id].blank?
+    @cart = find_cart
+    @order = Order.create_by_cart(session[:id],@cart.items)
+
+    if @order.blank?
+      flash[:notice] = 'Não foi possível criar o seu pedido!'
+      redirect_to root_path
+      return
+    end
+    @cart.clear
+    redirect_to order_path(@order)
+  end
+
+  def order
+    @order = Order.find(params[:id])
+  end
+
 end

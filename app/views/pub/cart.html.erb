@@ -12,8 +12,8 @@
 </p>
 
 <%= link_to 'Continuar comprando', root_path %>
+<%= link_to 'Fechar pedido', close_order_path, data: {confirm: 'Tem certeza que deseja fechar o seu pedido agora?'} %>
 
 <script>
     (new Bookstore.Cart()).fire()
-
 </script>

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'carrinho' => 'pub#cart', as: 'cart'
   delete 'carrinho/remover/:id' => 'pub#remove_cart_item', as: 'remove_cart_item'
   patch 'carrinho/alterar_item/:id' => 'pub#change_cart_item', as: 'change_cart_item'
+  get 'fechar_pedido' => 'pub#close_order', as: 'close_order'
+  get 'pedido/:id' => 'pub#order', as: 'order'
 
   resources :people do
     collection do

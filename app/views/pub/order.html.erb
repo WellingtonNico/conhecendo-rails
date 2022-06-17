@@ -1,0 +1,16 @@
+<h1>Seu pedido</h1>
+<h2>Número <%= @order.id %></h2> 
+Itens:
+<ul id="order_items">
+    <% for item in @order.order_items %>
+        <li>
+            <%= item.book.title %> -
+            <%= item.quantity %> -
+            <%= number_to_currency(item.value) %> -
+            <%= number_to_currency(item.quantity * item.value) %>
+        </li> 
+    <% end %>
+</ul>
+<p>
+    Total: <span class="book_value"><%= number_to_currency(@order.total) %></span>
+</p>

@@ -1,12 +1,3 @@
-SoldOutException   = Class.new(StandardError)
-NotEnoughException = Class.new(StandardError)
-
-def sell(qty = 1)
-  raise SoldOutException,   'Esgotado'       if sold_out?
-  raise NotEnoughException, 'Sem estoque suficiente' if self.stock - qty < 0
-  self.stock -= qty
-  save!
-end
 
 
 class Book < ApplicationRecord
@@ -19,6 +10,17 @@ class Book < ApplicationRecord
   validates :person, presence: true
   has_and_belongs_to_many :categories
   has_one :image, dependent: :destroy, as: :imageable
+
+  SoldOutException   = Class.new(StandardError)
+  NotEnoughException = Class.new(StandardError)
+
+  def sell(qty = 1)
+    raise SoldOutException,   'Esgotado'       if sold_out?
+    raise NotEnoughException, 'Sem estoque suficiente' if self.stock - qty < 0
+    self.stock -= qty
+    save!
+  end
+
 
   def sold_out?
     stock<1
