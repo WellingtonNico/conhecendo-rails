@@ -34,12 +34,14 @@
   <%= @book.image %>
 </p>
 
-<h2>Categorias</h2> 
-<ul>
-  <% for category in @book.categories %> 
-    <li><%= category.name %></li>
-  <% end %> 
-</ul>
+<% if @book.categories.count > 0 %>
+  <h2>Categorias</h2> 
+  <ul>
+    <% for category in @book.categories %> 
+      <li><%= category.name %></li>
+    <% end %> 
+  </ul>
+<% end %>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<%= link_to 'Editar', edit_book_path(@book) %> |
+<%= link_to 'Voltar', books_path %>

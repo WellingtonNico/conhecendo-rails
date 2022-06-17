@@ -1,0 +1,13 @@
+<li id="item_<%= cart_item[:id] %>">
+    <%= image_tag(cart_item[:item].image, height: 100) %>
+    <%= cart_item[:item].title %>
+    <br>
+    <%= text_field_tag :qty, cart_item[:qty],size: 3, redonly: 'readonly' %>
+    <span class="book_value">
+        <%= number_to_currency(cart_item[:item].value) %>
+    </span>
+    <%# o parâmetro remote indica que o clique será feito e será uma tarefa assíncrona %>
+    <%= link_to 'Remover', remove_cart_item_path(cart_item[:id]), method:  'delete', remote: true, data: {confirm: 'Tem certeza que deseja remover este item do seu carrinho?'} %>
+    <br>
+
+</li>

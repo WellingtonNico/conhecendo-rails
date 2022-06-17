@@ -1,0 +1,2 @@
+document.querySelector("#item_<%= @book.id %>").remove()
+document.querySelector("#cart_total").textContent="<%= number_to_currency(@cart.total)%>"

@@ -12,6 +12,9 @@ gem 'bcrypt'
 # biblioteca necessária para salvar os dados das sessões no banco de dados
 gem 'activerecord-session_store'
 
+# JQuery
+# gem 'jquery-rails'
+
 # redimensionamento de imagens
 gem 'mini_magick'
 

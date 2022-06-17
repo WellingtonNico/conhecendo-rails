@@ -4,10 +4,13 @@ Rails.application.routes.draw do
   root 'pub#index'
   get 'pub/sobre'
 
-
+  # primeiro vem a url, depois a associação do controller, e depois o nome da url para ser usado
+  # get '<url>' => '<controller#action>', as: '<variável de acesso à url>'
   get 'livro/:id' => 'pub#book', as: 'pub_book'
   get 'autor/:id' => 'pub#author', as: 'pub_author'
   get 'comprar/:id' => 'pub#buy', as: 'buy'
+  get 'carrinho' => 'pub#cart', as: 'cart'
+  delete 'carrinho/remover/:id' => 'pub#remove_cart_item', as: 'remove_cart_item'
 
   resources :people do
     collection do

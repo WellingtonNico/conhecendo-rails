@@ -105,3 +105,30 @@ section#book_detail {
         height: 200px;
     }
 }
+
+
+
+ul#cart_items {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul#cart_items li {
+    height: 100px;
+}
+
+ul#cart_items li img {
+    float: left;
+    margin-right: 1em;
+}
+
+ul#cart_items li span.book_value {
+    margin-top: 1em;
+    font-size: 1em;
+}
+
+a.remove_book {
+    text-decoration: none;
+    color: red;
+    font-weight: bold;
+}

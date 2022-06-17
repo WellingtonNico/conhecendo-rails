@@ -1,0 +1,14 @@
+<h1>Seu carrinho de compras</h1>
+
+<ul class="cart_items">
+    <%= render partial: 'cart_item', collection: @cart.items %>
+</ul>
+
+<p>
+    Total: 
+    <span class="book_value" id="cart_total">
+        <%= number_to_currency(@cart.total) %>
+    </span>
+</p>
+
+<%= link_to 'Continuar comprando', root_path %>
