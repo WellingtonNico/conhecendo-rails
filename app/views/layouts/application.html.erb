@@ -16,7 +16,10 @@
   <nav>
     <ul>
       <li>
-        <%= link_to "Pessoas", people_path %>
+        <%= link_to Person.model_name.human.pluralize, people_path %>
+      </li>
+      <li>
+        <%= link_to Book.model_name.human.pluralize, books_path %>
       </li>
     </ul>
   </nav>
