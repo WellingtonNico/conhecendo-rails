@@ -1,0 +1,36 @@
+<h1>Bookstore</h1> <h2>Recebemos o seu pedido!</h2>
+<p>
+Olá, <%= @order.person.name %>! 
+</p>
+<p>
+  Seu pedido foi recebido em nosso sistema. Anote o número: <strong><%= @order.id %></strong> 
+</p>
+<p>
+  Os items comprados foram:
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Título</th> 
+      <th>Quantidade</th> 
+      <th>Valor</th> 
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% for item in @order.order_items %>
+    <tr>
+      <td><%= item.book.title %></td>
+      <td><%= item.quantity %></td>
+      <td><%= number_to_currency(item.value) %></td>
+      <td><%= number_to_currency(item.quantity * item.value) %></td>
+    </tr> 
+  <% end %> 
+  </tbody> 
+  <tfoot>
+    <tr>
+      <td colspan='3'>Total: </td>
+      <td><%= number_to_currency(@order.total) %></td>
+    </tr>
+  </tfoot>
+</table>

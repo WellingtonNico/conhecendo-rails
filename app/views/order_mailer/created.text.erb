@@ -1,0 +1,13 @@
+Olá, <%= @order.person.name %>!
+
+Seu pedido foi recebido em nosso sistema. 
+
+Anote o número: <%= @order.id %> 
+
+Os items comprados foram:
+
+<% for item in @order.order_items %>
+- <%= item.book.title %> - <%= item.quantity %> - <%= number_to_currency(item.value) %> - <%= number_to_currency(item.quantity * item.value) %>
+<%end%>
+
+Obrigado por fazer seu pedido conosco!

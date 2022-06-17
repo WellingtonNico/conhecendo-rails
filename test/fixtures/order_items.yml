@@ -7,7 +7,7 @@ one:
   value: 9.99
 
 two:
-  order: two
+  order: one
   book: two
   quantity: 1
   value: 9.99
