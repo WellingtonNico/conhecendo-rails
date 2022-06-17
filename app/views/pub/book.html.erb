@@ -1,0 +1,15 @@
+<section id="book_detail">
+    <h1>
+        <%= @book.title %>
+    </h1>
+    <h2>
+        <%= link_to @book.person.name, pub_author_path(@book.person) %>
+    </h2>
+    <%= image_tag(@book.image) %>
+    <%= simple_format(@book.text) %>
+    <span class="book_value">
+        <%= number_to_currency(@book.value) %>
+    </span>
+    <br>
+    <%= link_to 'Comprar', buy_path(@book), class: 'buy_book'%>
+</section>

@@ -1,3 +1,107 @@
-// Place all the styles related to the pub controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+    margin: 0;
+    font-size: 14px;
+}
+
+header {
+    background: maroon;
+    color: white;
+    padding: 1em;
+}
+
+nav,
+footer {
+    background: black;
+    color: white;
+
+    ul {
+        list-style-type: none;
+        margin: auto auto auto 1em;
+        padding: 0;
+
+        li {
+            padding: 1em 1em 1em 0;
+            display: table-cell;
+
+            a:visited {
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+
+            }
+        }
+    }
+}
+
+section#main {
+    margin: auto 2em;
+}
+
+ul#mini_books {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+        display: table-cell;
+        padding-right: 7em;
+
+        img {
+            height: 150px;
+        }
+    }
+
+    h1 {
+        color: maroon;
+        margin-bottom: 0;
+    }
+
+    h2 {
+        margin-top: 0;
+        font-size: 1em;
+    }
+}
+
+
+
+a.more_book_info,
+a.buy_book {
+    background: red;
+    color: white;
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 0.5em 1em;
+    margin-left: 3em;
+    text-decoration: none;
+
+    :visited {
+        color: white;
+    }
+}
+
+p.sold_out {
+    color: red;
+    font-weight: bold;
+}
+
+span.book_value {
+    color: green;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+a.buy_book {
+    display: block;
+    margin: 0;
+    margin: 1em 0;
+    width: 5em;
+}
+
+footer {
+    padding: 1em;
+}
+
+section#book_detail {
+    img {
+        height: 200px;
+    }
+}

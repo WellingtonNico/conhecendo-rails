@@ -1,0 +1,5 @@
+<h1>Livros de: <%= @author.name %></h1>
+
+<ul id="mini_books">
+    <%= render partial: 'mini_book', collection: @author.books %>
+</ul>
