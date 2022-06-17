@@ -17,3 +17,8 @@ the 'gem pg' does not work with postgresl installed with brew on mac, you should
 install other version with libpq already included for the gem to can find the lib,
 even setting correct path to run bundle install, it cant find libpq with brew postgres
 
+* Addons
+the gem activerecord-session_store was added, so for the sessions to be saved you
+must run the command "rails g active_record:session_migration" before "rails db:migrate" 
+for the first time
+
