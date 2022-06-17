@@ -1,0 +1,10 @@
+<li>
+    <h1><%= mini_book.title %></h1>
+    <h2><%= mini_book.person.name %></h2>
+    <%= mini_book.image ? image_tag(mini_book.image) : '' %>
+    <%= simple_format(mini_book.text) %>
+    <span class='book_value'>
+        <%= number_to_currency(mini_book.value) %>
+    </span>
+    <%= link_to 'Mais detalhes', pub_book_path(mini_book), class: 'more_book_info'%>
+</li>

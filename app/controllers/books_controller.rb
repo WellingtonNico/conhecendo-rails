@@ -2,6 +2,7 @@ class BooksController < LoggedController
   layout = 'pub'
   before_action :set_book, only: %i[ show edit update destroy ]
   before_action :load_categories, only: %i[ new update destroy edit ]
+  respond_to :html, :json
 
   # GET /books or /books.json
   def index
@@ -10,6 +11,8 @@ class BooksController < LoggedController
 
   # GET /books/1 or /books/1.json
   def show
+    @book = BookPresenter.new(@book)
+    respond_with @book
   end
 
   # GET /books/new

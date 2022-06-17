@@ -1,28 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong><%= Book.human_attribute_name(:title) %>:</strong>
   <%= @book.title %>
 </p>
 
 <p>
-  <strong>Published at:</strong>
+  <strong><%= Book.human_attribute_name(:published_at) %>:</strong>
   <%= @book.published_at %>
 </p>
 
 <p>
-  <strong>Text:</strong>
+  <strong><%= Book.human_attribute_name(:text) %>:</strong>
   <%= @book.text %>
 </p>
 
 <p>
-  <strong>Value:</strong>
+  <strong><%= Book.human_attribute_name(:value) %>:</strong>
   <%= @book.value %>
 </p>
 
 <p>
-  <strong>Person:</strong>
+  <strong><%= Book.human_attribute_name(:person) %>:</strong>
   <%= @book.person %>
+</p>
+
+<p>
+  <%= @book.image %>
 </p>
 
 <h2>Categorias</h2> 
