@@ -36,9 +36,7 @@
     <%= form.text_field :person_id %>
   </div>
 
-  <div class="field">
-    <%= file_field_tag :data_stream %>
-  </div>
+  <%= render 'image_fields', form: form %>
 
   <h2>Categorias</h2>
   <ul>

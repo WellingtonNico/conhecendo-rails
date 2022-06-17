@@ -1,5 +1,4 @@
 class PeopleController < AdminController
-  include ImageSaver
   before_action :set_person, only: %i[ show edit update destroy changed]
   respond_to :html, :json
 
@@ -62,6 +61,6 @@ class PeopleController < AdminController
 
     # Only allow a list of trusted parameters through.
     def person_params
-      params.require(:person).permit(:name, :email, :password, :born_at, :password_confirmation)
+      params.require(:person).permit(:name, :email, :password, :born_at, :password_confirmation, :image_title, :data_stream)
     end
 end

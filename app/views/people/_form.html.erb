@@ -35,10 +35,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= file_field_tag :data_stream %>
-  </div>
-  
+  <%= render 'image_fields', form: form %>
+
   <div class="field">
     <%= form.label :password %>
     <%= form.password_field :password %>

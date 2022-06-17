@@ -1,4 +1,5 @@
 class Book < ApplicationRecord
+  include ImageSaver
   belongs_to :person
   validates :title, presence: true, length: { maximum: 100 }
   validates :published_at, presence: true
