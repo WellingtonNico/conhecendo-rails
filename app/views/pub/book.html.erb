@@ -11,5 +11,9 @@
         <%= number_to_currency(@book.value) %>
     </span>
     <br>
-    <%= link_to 'Comprar', buy_path(@book), class: 'buy_book'%>
+    <% if @book.sold_out? %>
+        <p class="sold_out">Esgotado!</p>
+    <% else %>
+        <%= link_to 'Comprar', buy_path(@book), class: 'buy_book'%>
+    <% end %>
 </section>

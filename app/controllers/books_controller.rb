@@ -1,7 +1,8 @@
 class BooksController < LoggedController
   layout = 'pub'
   before_action :set_book, only: %i[ show edit update destroy ]
-  before_action :load_categories, only: %i[ new update destroy edit ]
+  before_action :load_categories, only: %i[ new update edit create ]
+  before_action :load_people, only: %i[ new update edit create ]
   respond_to :html, :json
 
   # GET /books or /books.json
@@ -70,10 +71,14 @@ class BooksController < LoggedController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:title, :published_at, :text, :value, :person_id, :image_title, :data_stream, category_ids:[])
+      params.require(:book).permit(:title, :published_at, :text, :value, :person_id, :image_title, :data_stream, :stock, category_ids:[])
     end
 
     def load_categories
       @categories = Category.all
+    end
+
+    def load_people
+      @people = Person.all
     end
 end

@@ -8,4 +8,9 @@ class Book < ApplicationRecord
   validates :person, presence: true
   has_and_belongs_to_many :categories
   has_one :image, dependent: :destroy, as: :imageable
+
+  def sold_out?
+    stock<1
+  end
+
 end

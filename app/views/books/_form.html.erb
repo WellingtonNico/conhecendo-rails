@@ -32,8 +32,14 @@
   </div>
 
   <div class="field">
+    <%= form.label :stock %>
+    <%= form.text_field :stock %>
+  </div>
+
+  <div class="field">
     <%= form.label :person_id %>
-    <%= form.text_field :person_id %>
+    <br>
+    <%= collection_select :book, :person_id, @people, :id, :name %>
   </div>
 
   <%= render 'image_fields', form: form %>
