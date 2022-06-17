@@ -9,6 +9,9 @@ gem 'responders'
 # biblioteca para fazer a encriptação das senhas
 gem 'bcrypt'
 
+# biblioteca necessária para salvar os dados das sessões no banco de dados
+gem 'activerecord-session_store'
+
 # redimensionamento de imagens
 gem 'mini_magick'
 
@@ -64,9 +67,7 @@ group :development do
 end
 
 group :test do
-  gem 'poltergeist'
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
