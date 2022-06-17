@@ -36,6 +36,10 @@
     <%= form.text_field :person_id %>
   </div>
 
+  <div class="field">
+    <%= file_field_tag :data_stream %>
+  </div>
+
   <h2>Categorias</h2>
   <ul>
     <%= collection_check_boxes :book, :category_ids, @categories, :id, :name do |builder| %>

@@ -1,16 +1,20 @@
 class Image < ApplicationRecord
     after_save :update_file
     after_destroy :delete_file
+    # imageable é o nome virtual do modelo para associação da imagem
+    # veja no model person que ele "exporta" a associação com a imagem com 
+    # o mesmo nome de associação
+    belongs_to :imageable, polymorphic: true
+
 
     attr_accessor :data_stream, :width, :height
-    belongs_to :person
     
     def file_name
         "#{id}.jpg"
     end
 
     def path
-        '/images/people'
+        "/images/#{imageable_type.pluralize.underscore}/"
     end
 
     def to_s

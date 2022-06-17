@@ -27,9 +27,6 @@
     <%= form.date_select :born_at, start_year: 100.years.ago.year, end_year: 16.years.ago.year %>
   </div>
 
-  <div class="field">
-    <%= file_field_tag :data_stream %>
-  </div>
 
   <% if session[:admin] %>
     <div class="field">
@@ -38,6 +35,10 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= file_field_tag :data_stream %>
+  </div>
+  
   <div class="field">
     <%= form.label :password %>
     <%= form.password_field :password %>

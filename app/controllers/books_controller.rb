@@ -1,4 +1,5 @@
 class BooksController < LoggedController
+  include ImageSaver
   layout = 'pub'
   before_action :set_book, only: %i[ show edit update destroy ]
   before_action :load_categories, only: %i[ new update destroy edit ]

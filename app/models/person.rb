@@ -8,8 +8,7 @@ class Person < ApplicationRecord
     validates :password, presence:{on: :create},length:{minimum:8,allow_blank: true}
     has_many :books, dependent: :destroy
     has_many :categories, -> { distinct }, through: :books
-    has_one :image, dependent: :destroy
-
+    has_one :image, dependent: :destroy, as: :imageable
 
     # escopos
     scope :admins, -> {where(admin:true)}
