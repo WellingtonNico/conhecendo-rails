@@ -2,6 +2,7 @@ class Order < ApplicationRecord
   belongs_to :person
   has_many :order_items
   validates :person, presence: true
+  enum status: [:mailed, :delivered, :cancelled]
 
   def total
     order_items.reduce(0) do |memo, item|
