@@ -3,6 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.8'
 
+# bibliotecas responsáveis por jobs em background
+gem 'daemons'
+gem 'delayed_job_active_record'
+
 # biblioteca para usar no lugar do responder padrão, é mais simples e vai menos código
 gem 'responders'
 

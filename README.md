@@ -18,7 +18,8 @@ install other version with libpq already included for the gem to can find the li
 even setting correct path to run bundle install, it cant find libpq with brew postgres
 
 * Addons
-the gem activerecord-session_store was added, so for the sessions to be saved you
-must run the command "rails g active_record:session_migration" before "rails db:migrate" 
-for the first time
+becouse of the addons you must run some commands before run "rails db:migrate":
+- "rails g active_record:session_migration";
+- "rails g delayed_job:active_record";
+
 
