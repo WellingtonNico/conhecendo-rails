@@ -8,6 +8,11 @@ gem 'daemons'
 gem 'delayed_job_active_record'
 # biblioteca mais parruda para serviços em background
 gem 'resque'
+# e essa é mais parruda ainda
+gem 'sidekiq'
+
+# biblioteca para poder ver os estados dos processos
+gem 'sinatra'
 
 
 # biblioteca para usar no lugar do responder padrão, é mais simples e vai menos código
