@@ -29,10 +29,15 @@ Olá, <%= @order.person.name %>!
   </tbody> 
   <tfoot>
     <tr>
-    </tr>
-    <tr>
-      <td colspan='3'>Total: </td>
-      <td><%= number_to_currency(@order.total) %></td>
+      <td colspan='3'>
+        <strong>Total: </strong>
+      </td>
+      <td>
+        <strong>
+        
+          <%= number_to_currency(@order.total) %>
+        </strong>
+      </td>
     </tr>
   </tfoot>
 </table>
