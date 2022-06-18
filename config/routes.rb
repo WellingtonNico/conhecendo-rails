@@ -1,8 +1,15 @@
+require 'sidekiq/web'
+Sidekiq::Web.set :sessions, false
+
+
 Rails.application.routes.draw do
   resources :categories
   resources :books
   root 'pub#index'
   get 'pub/sobre'
+
+  mount Sidekiq::Web => '/sidekiq'
+
 
   # primeiro vem a url, depois a associação do controller, e depois o nome da url para ser usado
   # get '<url>' => '<controller#action>', as: '<variável de acesso à url>'
