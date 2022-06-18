@@ -29,6 +29,8 @@ Olá, <%= @order.person.name %>!
   </tbody> 
   <tfoot>
     <tr>
+    </tr>
+    <tr>
       <td colspan='3'>Total: </td>
       <td><%= number_to_currency(@order.total) %></td>
     </tr>

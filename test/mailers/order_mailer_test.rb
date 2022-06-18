@@ -9,14 +9,13 @@ class OrderMailerTest < ActionMailer::TestCase
   end
 
   test "created" do
-    mail = OrderMailer.created(@order)
     assert_equal "Pedido #{@order.id} recebido com sucesso!", @mail.subject
     assert_equal [@order.person.email], @mail.to
     assert_equal ['Bookstore'], @mail.from
   end
 
   test "deliver_now" do
-    assert @mail.deliver_now!
+    assert @mail.deliver_now
   end
 
 end

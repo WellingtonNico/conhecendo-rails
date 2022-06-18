@@ -60,6 +60,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'ruby-debug-ide', '0.7.3'
   gem 'poltergeist'
   gem 'better_errors' 
   gem 'binding_of_caller'
