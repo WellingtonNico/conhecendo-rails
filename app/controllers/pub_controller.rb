@@ -54,7 +54,7 @@ class PubController < ApplicationController
       return
     end
     @cart.clear
-    OrderCreateEmailJob.perform_later(@order)
+    OrderCreateEmailJob.perform_later(@order.id)
     redirect_to order_path(@order)
   end
 

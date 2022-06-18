@@ -1,7 +1,7 @@
 class OrderCreateEmailJob < ApplicationJob
   queue_as :default
 
-  def perform(order)
-    OrderMailer.created(order).deliver_later
+  def perform(id)
+    OrderMailer.created(id).deliver_now
   end
 end
