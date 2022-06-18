@@ -1,1 +1,1 @@
-ActiveJob::Base.queue_adapter = :delayed_job
+ActiveJob::Base.queue_adapter = :resque

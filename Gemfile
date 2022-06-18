@@ -6,6 +6,9 @@ ruby '2.5.8'
 # bibliotecas responsáveis por jobs em background
 gem 'daemons'
 gem 'delayed_job_active_record'
+# biblioteca mais parruda para serviços em background
+gem 'resque'
+
 
 # biblioteca para usar no lugar do responder padrão, é mais simples e vai menos código
 gem 'responders'
