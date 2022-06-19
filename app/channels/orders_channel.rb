@@ -1,6 +1,7 @@
 class OrdersChannel < ApplicationCable::Channel
   def subscribed
-    # stream_from "some_channel"
+    Rails.logger.info "INSCRIÇÃO FEITA NO CANAL DE ORDERS, order #{params[:id]}"
+    stream_for Order.find(params[:id])
   end
 
   def unsubscribed

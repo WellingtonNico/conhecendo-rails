@@ -1,9 +1,9 @@
 var Bookstore = typeof Bookstore === "undefined" ? {} : Bookstore;
 // aqui que é o handle do ActionCable, o resto é tudo firula. ;-)
-Bookstore.Orders = function(order) {
-  this.order = order;
+Bookstore.Orders = function(orderId) {
+  this.orderId = orderId;
   this.subscribe = function() {
-    App.orders = App.cable.subscriptions.create({channel: 'OrdersChannel',id: this.order}, {
+    App.orders = App.cable.subscriptions.create({channel: 'OrdersChannel',id: this.orderId}, {
       received: function(data) {
           Bookstore.Orders.autohide_msg(data.msg);
       }

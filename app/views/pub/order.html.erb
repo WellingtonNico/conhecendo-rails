@@ -14,3 +14,10 @@ Itens:
 <p>
     Total: <span class="book_value"><%= number_to_currency(@order.total) %></span>
 </p>
+
+<script charset="utf-8" type="text/javascript"> 
+    $(document).on('turbolinks:load', function() {
+        console.log('subscrevendo no canal')
+        new Bookstore.Orders(Bookstore.Orders.idFromURL()).subscribe();
+    });
+</script>
