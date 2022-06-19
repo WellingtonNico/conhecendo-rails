@@ -132,3 +132,30 @@ a.remove_book {
     color: red;
     font-weight: bold;
 }
+
+
+
+// NOTIFICAÇÃO
+.alert {
+    border: 1px solid #d6e9c6;
+    background: #dff0d8;
+    color: black;
+    font-weight: bold;
+    padding: 1em;
+    z-index: 9999;
+    position: absolute;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    margin-left: 25%;
+    margin-top: 1em;
+
+    button {
+        align-self: flex-end;
+        margin-left: 1em;
+        border: 0;
+        background: transparent;
+        color: #3c763d;
+        font-weight: bold;
+    }
+}
