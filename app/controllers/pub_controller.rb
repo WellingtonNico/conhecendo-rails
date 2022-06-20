@@ -46,6 +46,10 @@ class PubController < ApplicationController
   def close_order
     raise NotAuthenticated, 'Faça o login primeiro' if session[:id].blank?
     @cart = find_cart
+    if @cart.items.size == 0
+      redirect_to cart_path
+      return
+    end
     @order = Order.create_by_cart(session[:id],@cart.items)
 
     if @order.blank?
