@@ -5,6 +5,10 @@ class PubController < ApplicationController
 
   def book
     @book = Book.find(params[:id])
+    # permite que o navegador faça o cache do conteúdo, alterando alguns headers
+    stale?(@book) do
+      respond_with @book
+    end
   end
 
   def author
