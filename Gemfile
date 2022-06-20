@@ -18,7 +18,7 @@ gem 'sinatra'
 gem 'kaminari'
 
 # recursos do jquery
-gem 'jquery-ui-rails'
+gem 'jquery-ui-rails', '6.0.1'
 
 # biblioteca para usar no lugar do responder padrão, é mais simples e vai menos código
 gem 'responders'

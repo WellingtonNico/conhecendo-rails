@@ -28,5 +28,30 @@
         <footer>
             Desenvolvido no ebook "Conhecendo Rails" 
         </footer>
+        <script>
+            $(document).ready(function () {
+                $('#search_term').autocomplete({
+                    source: function(request,response){
+                        $.getJSON("busca/",{search: request.term},response)
+                    },
+                    dataType: 'json',
+                    minLength: 3,
+                    change: function (event, ui) {
+                        console.log(event)
+                        console.log(ui)
+                        if (!ui.item) {
+                            $('#search_term').val('');
+                        }
+                    },
+                    select: function (event, ui) {
+                        console.log(event)
+                        console.log(ui)
+                        if (ui.item) {
+                            window.location.href = '/livro/' + ui.item.id;
+                        }
+                    }
+                })
+            })
+        </script>
     </body>
 </html>
