@@ -1,16 +1,11 @@
 
-html {
-    height: 100% !important;              /* for the page to take full window height */
-    box-sizing: border-box;    /* to have the footer displayed at the bottom of the page without scrolling */
-}
-
-
 body {
+    display: flex !important;
+    flex-direction: column !important;
+    // max-width: 100vw !important;
     margin: 0 !important;
-    font-size: 14px;
-    position: relative !important;        /* for the footer to move with the page size */
-    min-height: 100% !important;          /* for the footer to be at the bottom */
-    padding-bottom: 6rem;  
+    font-size: 14px;     /* for the footer to move with the page size */
+    // min-height: 100vh !important;          /* for the footer to be at the bottom */
 }
 
 header {
@@ -109,8 +104,8 @@ a.buy_book {
 
 footer {
     padding: 1em;
-    position: absolute !important;        /* for it to disappear under last body element */
-    bottom: 0 !important;   
+    // margin-top: auto;
+    margin-bottom: 0 !important;
 }
 
 section#book_detail {

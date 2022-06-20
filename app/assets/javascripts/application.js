@@ -16,7 +16,6 @@
 //= require_tree .
 //= require jquery
 //= require jquery-ui
-//= require jquery-ui/widgets/autocomplete
 
 
 

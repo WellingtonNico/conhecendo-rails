@@ -29,4 +29,8 @@ class Book < ApplicationRecord
     stock<1
   end
 
+  def self.search(term)
+    where("title like ?","%#{term}")
+  end
+
 end

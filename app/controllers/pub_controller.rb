@@ -11,6 +11,10 @@ class PubController < ApplicationController
     end
   end
 
+  def search_book
+    @results = Book.search(params[:search])
+  end
+
   def author
     @author = Person.find(params[:id])
   end
