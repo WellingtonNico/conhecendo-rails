@@ -21,5 +21,8 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
+  adapter: postgresql
+  password: <%= ENV['DATA_BASE_PASSWORD']%>
+  username: <%= ENV['DATA_BASE_USER']%>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: db/production.sqlite3
