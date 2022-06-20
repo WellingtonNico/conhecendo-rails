@@ -5,7 +5,7 @@ class OrderMailerTest < ActionMailer::TestCase
     @person = people(:admin)
     @order = orders(:one)
     @appEmail = 'robo.camillo.parts@gmail.com'
-    @mail = OrderMailer.created(@order)
+    @mail = OrderMailer.created(@order.id)
   end
 
   test "created" do
