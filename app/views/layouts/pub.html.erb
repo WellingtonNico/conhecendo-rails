@@ -7,7 +7,7 @@
         <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'%> 
     </head>
-    <body class="body-for-sticky"> 
+    <body> 
         <header>
             <h1>Título do layout público</h1> 
         </header>
@@ -22,7 +22,7 @@
         <section id="main"> 
             <%= yield %>
         </section> 
-        <footer class="sticky-footer">
+        <footer>
             Desenvolvido no ebook "Conhecendo Rails" 
         </footer>
     </body>

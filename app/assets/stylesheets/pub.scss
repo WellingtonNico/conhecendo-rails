@@ -3,11 +3,14 @@ html {
     height: 100% !important;              /* for the page to take full window height */
     box-sizing: border-box;    /* to have the footer displayed at the bottom of the page without scrolling */
 }
- 
+
 
 body {
     margin: 0 !important;
     font-size: 14px;
+    position: relative !important;        /* for the footer to move with the page size */
+    min-height: 100% !important;          /* for the footer to be at the bottom */
+    padding-bottom: 6rem;  
 }
 
 header {
@@ -20,6 +23,7 @@ nav,
 footer {
     background: black;
     color: white;
+    
 
     ul {
         list-style-type: none;
@@ -103,14 +107,11 @@ a.buy_book {
     width: 5em;
 }
 
-// footer {
-//     padding: 1em;
-//     // position: absolute;
-//     // bottom: 0 !important;
-//     // left: 0;
-//     // right: 0;
-//     // width: 100%;
-// }
+footer {
+    padding: 1em;
+    position: absolute !important;        /* for it to disappear under last body element */
+    bottom: 0 !important;   
+}
 
 section#book_detail {
     img {
@@ -118,17 +119,7 @@ section#book_detail {
     }
 }
 
-.body-for-sticky {
-    position: relative !important;        /* for the footer to move with the page size */
-    min-height: 100% !important;          /* for the footer to be at the bottom */
-    padding-bottom: 6rem;      /* Space available between last element and bottom border of the page */
-}
 
-.sticky-footer {
-    padding: 1em;
-    position: absolute !important;        /* for it to disappear under last body element */
-    bottom: 0 !important;                 /* so the footer can stick to the bottom*/
-}
 
 ul#cart_items {
     list-style-type: none;
