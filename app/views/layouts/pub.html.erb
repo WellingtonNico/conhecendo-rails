@@ -19,6 +19,9 @@
                 <li><%= link_to 'Carrinho', cart_path %></li>
             </ul> 
         </nav>
+        <section id="search">
+            <%= label_tag :search_term, 'Buscar produtos' %> <%= text_field_tag :search_term, params[:term] %>
+        </section>
         <section id="main"> 
             <%= yield %>
         </section> 

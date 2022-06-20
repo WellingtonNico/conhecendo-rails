@@ -17,6 +17,8 @@ gem 'sinatra'
 # biblioteca usada para paginação
 gem 'kaminari'
 
+# recursos do jquery
+gem 'jquery-ui-rails'
 
 # biblioteca para usar no lugar do responder padrão, é mais simples e vai menos código
 gem 'responders'
