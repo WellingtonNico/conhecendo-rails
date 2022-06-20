@@ -14,6 +14,9 @@ gem 'sidekiq'
 # biblioteca para poder ver os estados dos processos
 gem 'sinatra'
 
+# biblioteca usada para paginação
+gem 'kaminari'
+
 
 # biblioteca para usar no lugar do responder padrão, é mais simples e vai menos código
 gem 'responders'

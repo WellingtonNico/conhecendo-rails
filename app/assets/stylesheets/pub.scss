@@ -172,3 +172,18 @@ a.remove_book {
         font-weight: bold;
     }
 }
+
+// paginação
+nav.pagination{
+    color:black;
+    background: transparent;
+}
+
+nav.pagination span.current{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+nav.pagination a{
+    text-decoration: none;
+}
